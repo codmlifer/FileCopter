@@ -1,4 +1,4 @@
-const hashlib = require("js-hash-encoding");
+const hashlib = require("./JSHash");//js-hash-encoding
 
 function CreateHashKey(string) {
     return `${hashlib.hash(string)}:${hashlib.getHashCode(string)}:${string}`;
