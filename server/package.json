@@ -1,0 +1,50 @@
+{
+  "name": "server-fc",
+  "productName": "FC Server",
+  "description": "FileCopter server",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Суручан В.О. AuditSoft",
+  "icon": "./assets/icon.ico",
+  "build": {
+    "win": {
+      "executableName": "ServerFC",
+      "artifactName": "ServerFC-${version}.${ext}"
+    },
+    "extraResources": [
+      "assets",
+      "Logs"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "uninstallDisplayName": "FC Server",
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "menuCategory": true
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "build-all": "electron-builder --ia32 --x64 -w && C: && dir/s",
+    "build-win32": "electron-builder --ia32 -w",
+    "build-win64": "electron-builder --x64 -w"
+  },
+  "dependencies": {
+    "@electron/remote": "2.0.9",
+    "js-hash-encoding": "^1.0.4",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
+    "uplot": "^1.6.5"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron/rebuild": "^4.0.2",
+    "electron": "22.1.0",
+    "electron-builder": "^26.4.0"
+  }
+}

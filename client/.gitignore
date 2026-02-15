@@ -1,0 +1,9 @@
+node_modules
+out
+package-lock.json
+.vs
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md
+.vscode
+.qodo
+.cursor

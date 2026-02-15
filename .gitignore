@@ -1,0 +1,11 @@
+client/node_modules
+client/out
+client/package-lock.json
+client/.vs
+server/node_modules
+server/out
+server/package-lock.json
+server/.vs
+.vscode
+.qodo
+.cursor

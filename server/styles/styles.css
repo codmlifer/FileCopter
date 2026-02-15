@@ -1,0 +1,154 @@
+html, body, .main-window {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* overflow: hidden; */
+    padding: 0;
+}
+
+.app-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    app-region: drag;
+    position: fixed;
+    background: dimgrey;
+    color: white;
+    font-family: cursive;
+    align-items: center;
+}
+input {
+    app-region: none;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+ipaddr {
+    display: flex;
+    padding-top: 36px;
+    font-size: 20px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    user-select: none;
+}
+
+close {
+    app-region: none;
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+copied {
+    display: none;
+}
+
+windowlog {
+    display: flex;
+    /* height: calc(100% - 112px); */
+    flex-direction: column;
+    margin-top: 10px;
+    background: black;
+    font-family: cursive;
+    width: 71% !important;
+}
+
+btns {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+btns * {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    font-size: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+
+viewlog {
+    display: block;
+    height: 100%;
+    overflow: scroll;
+    border-top: 2px #998b8b solid;
+}
+
+button#filter-err-info.active {
+    background: #468fe9;
+    color: white;
+    transition: .2s;
+}
+
+button#filter-err-warn.active {
+    background: #ebeb12;
+    transition: .2s;
+    color: black;
+}
+
+button#filter-err-fatal.active {
+    background: #ed2f2f;
+    color: white;
+    transition: .2s;
+}
+
+button#filter-err-all.active {
+    background: dimgrey;
+    color: white;
+    transition: .2s;
+}
+
+line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 4px;
+}
+
+time {
+    margin-right: 10px;
+}
+
+.WARNlog {
+    color: #abab0a;
+    border-right: 10px #abab0a solid;
+}
+
+.INFOlog {
+    color: white;
+}
+
+.FATALlog {
+    color: red;
+    border-right: 10px red solid;
+}
+
+success {
+    color: #16ff16;
+}
+
+button#rerun-state {
+    font-size: 20px;
+}
+
+.win {
+    display: flex;
+    height: 80%;
+    /* background: #c1b9b9; */
+}
+
+.u-over {
+    height: fit-content !important;
+}

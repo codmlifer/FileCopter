@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link href="./styles/styles.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot@1.8.0/dist/uPlot.min.css"> -->
+  <title></title>
+</head>
+
+<body>
+    <div class="app-bar">
+        <close>close</close>
+    </div>
+    <ipaddr>
+        <text>Адреса для підключення клієнтів<copy>(натисніть щоб скопіювати)</copy>:</text><input type="text" readonly>
+        <copied>Скопійовано ✔</copied>
+    </ipaddr>
+    <div class="win">
+    <windowlog>
+        <btns>
+            <div class="filters">
+                <button id="filter-err-all" class="active" onclick="getAll()">All logs</button>
+                <button id="filter-err-info" onclick="getInfo()">Info</button>
+                <button id="filter-err-warn" onclick="getWarn()">Warn</button>
+                <button id="filter-err-fatal" onclick="getFatal()">Fatal</button>
+            </div>
+            <div class="controls">
+                <button id="rerun-state" onclick="rerunState()">🔄</button>
+            </div>
+
+        </btns>
+        <viewlog></viewlog>
+    </windowlog>
+    <div id="memChart"></div>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+
+</html>

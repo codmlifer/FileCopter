@@ -1,0 +1,21 @@
+// discovery-client.js
+const dgram = require('dgram');
+
+const BROADCAST_PORT = 41234; //on server machine port
+
+module.exports = function discoverServer(onFound) {
+  const socket = dgram.createSocket('udp4');
+
+  socket.on('message', (msg, rinfo) => {
+    try {
+      const data = JSON.parse(msg.toString());
+
+      if (data.type === 'server-found-for-filecopter') {
+        socket.close();
+        onFound(`http://${rinfo.address}:${data.port}`);
+      }
+    } catch {}
+  });
+
+  socket.bind(BROADCAST_PORT);
+};

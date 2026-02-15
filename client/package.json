@@ -1,0 +1,26 @@
+{
+  "name": "JSLearn",
+  "productName": "JSLearn",
+  "description": "Вивчай js та пиши програми в одному додатку JSLearn",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "JSLearn && RScript && Android",
+  "scripts": {
+    "start": "electron .",
+    "build-all": "electron-builder --ia32 --x64 -w && C: && dir/s",
+    "build-win32": "electron-builder --ia32 -w",
+    "build-win64": "electron-builder --x64 -w"
+  },
+  "dependencies": {
+    "@electron/remote": "2.0.9",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron/rebuild": "^4.0.2",
+    "electron": "22.1.0",
+    "electron-builder": "^26.4.0"
+  }
+}

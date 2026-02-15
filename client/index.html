@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="./styles/loaders.css" rel="stylesheet">
+  <link href="./styles/styles.css" rel="stylesheet">
+  <title>FileCopter</title>
+</head>
+
+<body>
+    <div class="main-window">
+        <div class="app-bar">
+            <img src="./assets/icon.ico" class="app-icon" />
+            <span class="title">FileCopter</span>
+            <div class="window-controls">
+                <button class="minimize-button">&#x2013;</button>
+                <button class="maximize-button">&#x2610;</button>
+                <button class="close-button">&#x2715;</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="menu" theme="light">
+                <div class="item" theme="light">D:\ELECTRON\ELECTRON.js\building</div>
+                <div class="item" theme="light">D:\ELECTRON\</div>
+            </div>
+            <div class="file-window" theme="light">
+                <div class="file">
+                    <div class="text"><div class="txt1">Click on the area to select files</div><div class="txt2">or drag and drop files</div></div>
+                </div>
+                <div class="send-file no-active"><span class="loader"></span>Send files</div>
+                <div class="get-file no-active"><span class="loader"></span>Get files</div>
+                <input type="password" id="key">
+            </div>
+        </div>
+    </div>
+    <script src="./socket.client.js"></script>
+    <script src="./renderer.js"></script>
+</body>
+
+</html>
