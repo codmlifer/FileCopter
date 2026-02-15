@@ -3,6 +3,7 @@ const W = window;
 const CHUNK_SIZE = 128 * 1024;
 const ButtonSendFile = D.querySelector(".send-file");
 const ButtonGetFile = D.querySelector(".get-file");
+const Menu = D.querySelector(".menu");
 
 let FoundServer = require("./udp-client");
 const { BrowserWindow } = require('@electron/remote');
@@ -22,6 +23,28 @@ const State = new Proxy(
     }
   }
 );
+
+function createItemFile(fileName, theme, fileSize, filePath) {
+  let ItemWidget = D.createElement("div");
+  let ProgressWidget = D.createElement("div");
+  let ProgressFileWidget = D.createElement("div");
+
+  ItemWidget.className = "item " + theme;
+  ItemWidget.innerText = fileName;
+  ItemWidget.setAttribute("path", filePath)
+
+  ProgressWidget.className = "progress";
+
+  ProgressFileWidget.className = "loader_progress";
+  ProgressFileWidget.innerText = "0%";
+
+  ProgressWidget.appendChild(ProgressFileWidget);
+  ItemWidget.appendChild(ProgressWidget);
+
+  Menu.appendChild(ItemWidget);
+
+  return ProgressFileWidget;
+}
 
 async function checkInternet() {
   try {
@@ -75,7 +98,12 @@ FoundServer((StringForConnect) => {
 
   let TempDir = null;
   ButtonSendFile.onclick = () => {
+
     FilesList.files.forEach((el) => {
+
+      createItemFile(el.fileName, "light", el.fileSize, el.path)
+      console.log(el)
+
       const stream = fs.createReadStream(el.file.path, {
         highWaterMark: CHUNK_SIZE
       });
@@ -134,6 +162,7 @@ FoundServer((StringForConnect) => {
     document.querySelector("div.text").classList.remove("hide");
 
     let JSONFormat = GetFiles(e.dataTransfer.files);
+    console.log(e.dataTransfer.items)
     FilesList = JSONFormat;
 
     if (typeof JSONFormat === "object") {

@@ -24,3 +24,16 @@
     display: none;
   }
   
+
+  .progress {
+    width: 100%;
+}
+
+.loader_progress {
+    width: 0%;
+    background: dimgrey;
+    text-align: center;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
