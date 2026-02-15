@@ -111,7 +111,7 @@ io.on("connection", (socket) => {
 app.whenReady().then(() => {
   LogisterInfo.info("Server started")
 
-    //IF ISDEVMODE
+    //IF ISDEVMODE comment
     app.setLoginItemSettings({
       openAtLogin: true,
       path: process.execPath,
