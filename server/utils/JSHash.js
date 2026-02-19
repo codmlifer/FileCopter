@@ -1,7 +1,3 @@
-/* =========================
-   Query (деобфусцирован)
-   ========================= */
-
 class Query {
   encode(input) {
     let out = "";
@@ -47,10 +43,6 @@ class Query {
     return out;
   }
 }
-
-/* =========================
-   JSHash (деобфусцирован)
-   ========================= */
 
 class JSHash {
 
@@ -104,10 +96,6 @@ class JSHash {
     return hash;
   }
 }
-
-/* =========================
-   Export
-   ========================= */
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = new JSHash();

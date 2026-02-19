@@ -1,4 +1,6 @@
 const crypto = require('crypto');
+const fs = require("fs");
+const JSHash = require("./JSHash");
 
 const OnLineStates = {
   onLine: 1,
@@ -22,6 +24,8 @@ function formatSize(bytes) {
   };
 }
 
+function GetUUID(string) {return crypto.randomUUID() + "-" + string}
+
 function GetFiles(Files) {
   let files = undefined;
   const fileArray = Array.from(Files || []); // FileList не имеет forEach — конвертируем в массив
@@ -31,6 +35,8 @@ function GetFiles(Files) {
     fileArray.forEach((fileKey) => {
       let fileObject = {};
 
+      const Stats = fs.statSync(fileKey.path);
+
       fileObject.fileName = fileKey.name;
       fileObject.filePath = fileKey.path;
       fileObject.fileSize = fileKey.size;
@@ -39,13 +45,15 @@ function GetFiles(Files) {
       fileObject.fileCalculus = FileInfo.calculus;
       fileObject.fileString = FileInfo.string;
       fileObject.file = fileKey;
+      fileObject.isDir = Stats.isDirectory();
+      fileObject.uid = GetUUID(JSHash.hash(fileKey.path));
 
       let ArrExt = fileKey.name.split(".");
       const Extension = ArrExt.findLast((lastElem) => {
         return lastElem;
       });
 
-      fileObject.iconExt = FileImage(Extension);
+      fileObject.iconExt = FileImage((Stats.isDirectory()?"dir":Extension));
       fileObject.extension = Extension;
 
       fileList.files.push(fileObject);
@@ -98,6 +106,7 @@ function FileImage(extension) {
     ps1: `./assets/icons/powershell.svg`,
     jsx: `./assets/icons/react.svg`,
     figma: `./assets/icons/figma.svg`,
+    dir: `./assets/icons/folder-base.svg`
   };
 
   const exts = Object.keys(FImage);
@@ -116,5 +125,6 @@ module.exports = {
   GetFiles,
   FileImage,
   generateKey,
-  OnLineStates
+  OnLineStates,
+  GetUUID
 }
